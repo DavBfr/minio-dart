@@ -1113,7 +1113,7 @@ class Minio {
 
     return StatObjectResult(
       etag: etag,
-      size: int.parse(resp.headers['content-length']!),
+      size: int.parse(resp.headers['content-length'] ?? '0'),
       metaData: extractMetadata(resp.headers),
       lastModified: parseRfc7231Time(resp.headers['last-modified']!),
       acl: await getObjectACL(bucket, object),
